@@ -1,18 +1,18 @@
 library(shiny) 
 
-BMI<-function(weight,height) {weight/(height^2)}
+BMI<-function(wt,ht) {wt/(ht^2)}
 
-diagnostic_f<-function(weight,height){
-    BMI_value<-weight/(height^2)
-    ifelse(BMI_value<18.5,"underweight",ifelse(BMI_value<25,"normal weight",ifelse(BMI_value<30,"overweight","obese")))
+infer_f<-function(wt,ht){
+    BMI_value<-wt/(ht^2)
+    ifelse(BMI_value<18.5,"under wt",ifelse(BMI_value<25,"normal wt",ifelse(BMI_value<30,"over wt","obese")))
 }
 
 shinyServer(
     function(input, output) {
         
-        output$inputweightvalue <- renderPrint({input$weight})
-        output$inputheightvalue <- renderPrint({input$height})
-        output$estimation <- renderPrint({BMI(input$weight,input$height)})
-        output$diagnostic <- renderPrint({diagnostic_f(input$weight,input$height)})
+        output$inputwtvalue <- renderPrint({input$wt})
+        output$inputhtvalue <- renderPrint({input$ht})
+        output$result <- renderPrint({BMI(input$wt,input$ht)})
+        output$infer <- renderPrint({infer_f(input$wt,input$ht)})
     } 
 )

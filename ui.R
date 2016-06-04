@@ -2,12 +2,12 @@ library(shiny)
 shinyUI(
     pageWithSidebar(
         # Application title
-        headerPanel("Body Mass Index (BMI) Calculator"),
+        headerPanel("Body Mass Index - Calculator"),
         
         sidebarPanel(
-            numericInput('weight', 'Your body weight in kilograms', 70) ,
-            numericInput('height', 'Your height in metres', 1.70, min = 0.2, max = 3, step = 0.01),
-            submitButton('Submit')
+            numericInput('wt', 'Body weight in kilograms', 70) ,
+            numericInput('ht', 'Height in metres', 1.70, min = 0.2, max = 3, step = 0.01),
+            submitButton('Calculate')
         ), 
         mainPanel(
             p('The Body mass index (BMI) is a measure of body fat based on height and weight that applies to adult men and women.'),
@@ -22,11 +22,11 @@ shinyUI(
             ),
             
             h4('Taking into account the values entered by you:'), 
-            p('weight:'), verbatimTextOutput("inputweightvalue"),
-            p('height:'), verbatimTextOutput("inputheightvalue"),
+            p('weight:'), verbatimTextOutput("inputwtvalue"),
+            p('height:'), verbatimTextOutput("inputhtvalue"),
             h4('Your BMI is:'),
-            verbatimTextOutput("estimation"),
-            p('It means that you are:'),strong(verbatimTextOutput("diagnostic"))
+            verbatimTextOutput("result"),
+            p('It means that you are:'),strong(verbatimTextOutput("infer"))
             
             
         )
