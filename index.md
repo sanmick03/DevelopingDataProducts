@@ -1,5 +1,5 @@
 ---
-title       : Body Mass Index (BMI) Calculator
+title       : Body Mass Index - Calculator
 subtitle    : Developing Data Products Project
 author      : 
 job         : 
@@ -9,6 +9,7 @@ hitheme     : tomorrow      #
 widgets     : [mathjax]            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
+host        : rpubs
 ---
 
 ## What is BMI?
@@ -31,9 +32,9 @@ Thus for the next example, the BMI will be:
 
 
 ```r
-weight = 75
-height = 1.80
-BMI <- weight / height^2
+wt = 75
+ht = 1.80
+BMI <- wt / ht^2
 BMI
 ```
 
@@ -44,25 +45,26 @@ BMI
 
 ---
 
-## Diagnostic
-The function use for calculating the diagnostic is the following:
+## Inference
+The function use for calculating and inferring is the following:
 
 ```r
-diagnostic_f<-function(weight,height){
-        BMI_value<-weight/(height^2)
-        ifelse(BMI_value<18.5,"underweight",ifelse(BMI_value<25,"normal weight",ifelse(BMI_value<30,"overweight","obesity")))
+infer_f<-function(wt,ht){
+    BMI_value<-wt/(ht^2)
+    ifelse(BMI_value<18.5,"under wt",ifelse(BMI_value<25,"normal wt",
+                            ifelse(BMI_value<30,"over wt","obese")))
 }
 ```
 
-For our example (weight=75 kg and height=1.80 m) the diagnostic would be:
+For our example (weight=75 kg and height=1.80 m) the inference would be:
 
 
 ```r
-diagnostic_f(75 , 1.8)
+infer_f(75 , 1.8)
 ```
 
 ```
-## [1] "normal weight"
+## [1] "normal wt"
 ```
 
 ---
@@ -70,5 +72,4 @@ diagnostic_f(75 , 1.8)
 ## Conclusion
 The BMI is a relatively easy, cheap and non-invasive method for establishing weight status, and for most people, it correlates reasonably well with their level of body fat. 
 
-However, BMI is only a proxy for body fatness. other factors such as fitness, ethnic origin and puberty can alter the relation 
-between BMI and body fatness and must be taken into consideration.
+However, BMI is only a proxy for body fatness. other factors such as fitness, ethnic origin and puberty can alter the relation between BMI and body fatness and must be taken into consideration.

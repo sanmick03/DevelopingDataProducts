@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Body Mass Index (BMI) Calculator</title>
+  <title>Body Mass Index - Calculator</title>
   <meta charset="utf-8">
-  <meta name="description" content="Body Mass Index (BMI) Calculator">
+  <meta name="description" content="Body Mass Index - Calculator">
   <meta name="author" content="">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -13,8 +13,7 @@
     media="only screen and (max-device-width: 480px)" >
   <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
   <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
-  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
-
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  
   
   <!-- Grab CDN jQuery, fall back to local if offline -->
   <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
@@ -32,7 +31,7 @@
     <!-- LOGO SLIDE -->
         <slide class="title-slide segue nobackground">
   <hgroup class="auto-fadein">
-    <h1>Body Mass Index (BMI) Calculator</h1>
+    <h1>Body Mass Index - Calculator</h1>
     <h2>Developing Data Products Project</h2>
     <p><br/></p>
   </hgroup>
@@ -71,9 +70,9 @@ Regarding the BMI measure, the World Health Organization (WHO) proposes the foll
 
 <p>Thus for the next example, the BMI will be:</p>
 
-<pre><code class="r">weight = 75
-height = 1.80
-BMI &lt;- weight / height^2
+<pre><code class="r">wt = 75
+ht = 1.80
+BMI &lt;- wt / ht^2
 BMI
 </code></pre>
 
@@ -86,23 +85,24 @@ BMI
 
 <slide class="" id="slide-3" style="background:;">
   <hgroup>
-    <h2>Diagnostic</h2>
+    <h2>Inference</h2>
   </hgroup>
   <article data-timings="">
-    <p>The function use for calculating the diagnostic is the following:</p>
+    <p>The function use for calculating and inferring is the following:</p>
 
-<pre><code class="r">diagnostic_f&lt;-function(weight,height){
-        BMI_value&lt;-weight/(height^2)
-        ifelse(BMI_value&lt;18.5,&quot;underweight&quot;,ifelse(BMI_value&lt;25,&quot;normal weight&quot;,ifelse(BMI_value&lt;30,&quot;overweight&quot;,&quot;obesity&quot;)))
+<pre><code class="r">infer_f&lt;-function(wt,ht){
+    BMI_value&lt;-wt/(ht^2)
+    ifelse(BMI_value&lt;18.5,&quot;under wt&quot;,ifelse(BMI_value&lt;25,&quot;normal wt&quot;,
+                            ifelse(BMI_value&lt;30,&quot;over wt&quot;,&quot;obese&quot;)))
 }
 </code></pre>
 
-<p>For our example (weight=75 kg and height=1.80 m) the diagnostic would be:</p>
+<p>For our example (weight=75 kg and height=1.80 m) the inference would be:</p>
 
-<pre><code class="r">diagnostic_f(75 , 1.8)
+<pre><code class="r">infer_f(75 , 1.8)
 </code></pre>
 
-<pre><code>## [1] &quot;normal weight&quot;
+<pre><code>## [1] &quot;normal wt&quot;
 </code></pre>
 
   </article>
@@ -116,8 +116,7 @@ BMI
   <article data-timings="">
     <p>The BMI is a relatively easy, cheap and non-invasive method for establishing weight status, and for most people, it correlates reasonably well with their level of body fat. </p>
 
-<p>However, BMI is only a proxy for body fatness. other factors such as fitness, ethnic origin and puberty can alter the relation 
-between BMI and body fatness and must be taken into consideration.</p>
+<p>However, BMI is only a proxy for body fatness. other factors such as fitness, ethnic origin and puberty can alter the relation between BMI and body fatness and must be taken into consideration.</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -141,7 +140,7 @@ between BMI and body fatness and must be taken into consideration.</p>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Diagnostic'>
+        data-slide=3 title='Inference'>
          3
       </a>
     </li>
